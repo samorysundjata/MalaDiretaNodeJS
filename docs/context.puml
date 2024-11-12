@@ -1,17 +1,10 @@
-
-@startuml DiagramaDeContexto
+@startuml
+!define C4Context
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
-!define RECTANGLE class
-!define PERSON actor
+title Diagrama de Contexto - Sistema de Mala Direta
 
-title Diagrama de Contexto - MalaDiretaNodeJS
-
-PERSON(Usuario, "Usuário", "Pessoa que utiliza o sistema para enviar mala direta")
-RECTANGLE(SistemaMalaDireta, "MalaDiretaNodeJS", "Sistema para envio de mala direta")
-
-Usuario --> SistemaMalaDireta : "Envia dados para mala direta"
-
-RECTANGLE(SistemaEmail, "Sistema de Email", "Sistema externo para envio de emails")
-SistemaMalaDireta --> SistemaEmail : "Envia emails"
+Person(Usuario, "Usuário", "Pessoa que utiliza o sistema para enviar mala direta")
+System(SistemaMalaDireta, "MalaDiretaNodeJS", "Sistema para envio de mala direta")
+Rel(Usuario, SistemaMalaDireta, "Envia dados para mala direta")
 
 @enduml
